@@ -5,7 +5,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git 'https://github.com/harshini-1121/devops-user-app.git'
+                git branch: 'main',url: 'https://github.com/harshini-1121/devops-user-app.git'
             }
         }
 
