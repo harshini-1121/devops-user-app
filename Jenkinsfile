@@ -32,6 +32,7 @@ pipeline {
                 }
             }
         }
+
         stage('Quality Gate') {
             steps {
                 timeout(time: 2, unit: 'MINUTES') {
@@ -43,6 +44,15 @@ pipeline {
         stage('Run App Test') {
             steps {
                 sh 'node app/server.js & sleep 5'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                sh '''
+                export DOCKER_HOST=tcp://10.195.135.3:2375
+                docker build -t devops-user-app:latest .
+                '''
             }
         }
     }
