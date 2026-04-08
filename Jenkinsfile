@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        // Use your existing scanner name
-        sonarQube 'sonar-scanner'
-    }
-
     stages {
 
         stage('Checkout') {
