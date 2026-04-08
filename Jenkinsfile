@@ -1,11 +1,16 @@
 pipeline {
     agent any
 
+    tools {
+        // Use your existing scanner name
+        sonarQube 'sonar-scanner'
+    }
+
     stages {
 
         stage('Checkout') {
             steps {
-                git branch: 'main',url: 'https://github.com/harshini-1121/devops-user-app.git'
+                git branch: 'main', url: 'https://github.com/harshini-1121/devops-user-app.git'
             }
         }
 
@@ -21,11 +26,22 @@ pipeline {
             }
         }
 
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('sonarqube-new') {
+                    sh '''
+                    sonar-scanner \
+                    -Dsonar.projectKey=devops-user-app \
+                    -Dsonar.sources=.
+                    '''
+                }
+            }
+        }
+
         stage('Run App Test') {
             steps {
                 sh 'node app/server.js & sleep 5'
             }
         }
-
     }
 }
