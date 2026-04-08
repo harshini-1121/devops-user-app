@@ -46,11 +46,10 @@ pipeline {
                 sh 'node app/server.js & sleep 5'
             }
         }
-
         stage('Build Docker Image') {
             steps {
                 sh '''
-                export DOCKER_HOST=tcp://10.195.135.3:2375
+                export DOCKER_HOST=tcp://192.168.56.1:2375
                 docker build -t devops-user-app:latest .
                 '''
             }
