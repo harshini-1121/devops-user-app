@@ -1,17 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>User App</title>
-</head>
-<body>
-    <h1>User Details</h1>
-    <h2>DEvops Project Demo</h2>
-    <h3>An Sample document </h3>
+    <title>DevOps User Form</title>
 
-    <form action="/submit" method="POST">
-        Name: <input type="text" name="name" required><br><br>
-        Email: <input type="email" name="email" required><br><br>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            width: 400px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        p {
+            text-align: center;
+            color: gray;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 15px;
+            padding: 12px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #5a67d8;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>User Registration</h2>
+    <p>DevOps Project Demo</p>
+
+    <form>
+        <label>Name</label>
+        <input type="text" placeholder="Enter your name" required>
+
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email" required>
+
+        <label>Phone</label>
+        <input type="tel" placeholder="Enter phone number">
+
+        <label>Age</label>
+        <input type="number" placeholder="Enter age">
+
+        <label>Gender</label>
+        <select>
+            <option>Select</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select>
+
+        <label>Address</label>
+        <textarea rows="3" placeholder="Enter address"></textarea>
+
         <button type="submit">Submit</button>
     </form>
+</div>
+
 </body>
 </html>
